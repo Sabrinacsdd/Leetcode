@@ -1,6 +1,3 @@
-
-
-
 ## LeetCode link(Easy)
 https://leetcode.com/problems/implement-strstr/
 
@@ -43,20 +40,25 @@ Other: in the first loop, no need to iterate beyond the point where the characte
 ## 10/16/2019 Java
 
 ```java
-
 class Solution {
     public int strStr(String haystack, String needle) {
-        if(needle.length()==0){
+        if(needle.length() == 0)
             return 0;
+        if(haystack.length() == 0)
+            return -1;
+        int it_1 = 0, it_2 = 0, result = -1;
+        
+        for(; it_1 < haystack.length() - needle.length() + 1; it_1 ++){
+            if(haystack.charAt(it_1) == needle.charAt(0)){
+                for(it_2 = 0; it_2 < needle.length(); it_2++){
+                    if(haystack.charAt(it_1 + it_2) != needle.charAt(it_2))
+                        break;
+                }
+                if(it_2 == needle.length())
+                    return it_1;
+            }
         }
-        //string x=needle.equals(haystack.substring(5, needle.length()));
-        for (int i=0; i < haystack.length() - needle.length()+1; i++){
-            
-          if (needle.equals(haystack.substring(i, i+needle.length()))){
-              return i;
-          }
-        }
-        return  -1;
+        return -1;
     }
 }
 ```
