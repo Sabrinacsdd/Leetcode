@@ -62,7 +62,8 @@ String trim(): Returns the copy of the String, by removing whitespaces at both e
 String replace (char oldChar, char newChar): Returns new string by replacing all occurrences of oldChar with newChar.
     String s1 = “feeksforfeeks“;
     String s2 = “feeksforfeeks”.replace(‘f’ ,’g’); // returns “geeksgorgeeks”
-
+String substring (int start, int last) // returns substring
+     prefix = prefix.substring(0, prefix.length() - 1);
 ```
 
 
