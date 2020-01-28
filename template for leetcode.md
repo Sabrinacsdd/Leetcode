@@ -1,28 +1,25 @@
 ## LeetCode link(Easy)
-
+https://leetcode.com/problems/first-missing-positive/
 
 ## Keyword
 Array
 
 ## Problem description
 ```
-238. Product of Array Except Self
-Medium
+Given an unsorted integer array, find the smallest missing positive integer.
 
-3379
+Example 1:
 
-285
+Input: [1,2,0]
+Output: 3
+Example 2:
 
-Add to List
+Input: [3,4,-1,1]
+Output: 2
+Example 3:
 
-Share
-Given an array nums of n integers where n > 1,  return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
-
-Example:
-
-Input:  [1,2,3,4]
-Output: [24,12,8,6]
-Note: Please solve it without division and in O(n).
+Input: [7,8,9,11,12]
+Output: 1
 ```
 
 
@@ -32,27 +29,54 @@ Note: Please solve it without division and in O(n).
 
 ## Things to watchout
 
-## 01/16/2020 Java
+## 01/27/2020 Java
 
 ```java
 class Solution {
-    public int[] productExceptSelf(int[] nums) {
-        int n=nums.length;
-        int[] result=new int[n];
-        result[0]=1;
-        for(int i = 1; i< n; i++){
-            result[i]= result[i-1] * nums[i-1];
+    public int firstMissingPositive(int[] nums) {
+        int n = 0;
+        while (n < nums.length){
+            if(nums[n] == 1){
+                break;
+            }
+            n++;
         }
-        int r=1;
-        for (int i=n-1; i>=0; i--){
-            result[i]=result[i]*r;
-            r=r*nums[i];
+        if (n == nums.length){
+            return 1;
         }
-        return result;
+        if (n == 1){
+            return 2;
+        }
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] <= 0 || nums[i] > nums.length){
+                nums[i] = 1;
+            }            
+        }
+        for(int i = 0; i < nums.length; i++){
+            
+            int a = Math.abs(nums[i]);
+            
+            if(a == nums.length){
+                nums[0] = - Math.abs(nums[0]);
+            }
+            else{
+                nums[a] = - Math.abs(nums[a]);
+            }
+
+        }
+         for(int i = 1; i < nums.length; i++){
+            if(nums[i] > 0){
+                return i;
+            }
+        }
+        if(nums[0] > 0){
+            return nums.length;
+        }
+        else{
+            return nums.length + 1;
+        }
     }
 }
 
 ```
 ## Complexity Analyze
-Time complexity : O(N) where NN represents the number of elements in the input array. We use one iteration to construct the array LL, one to update the array answeranswer.
-Space complexity : O(1)O(1) since don't use any additional array for our computations. The problem statement mentions that using the answeranswer array doesn't add to the space complexity.
