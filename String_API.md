@@ -13,7 +13,7 @@ String substring (int i): Return the substring from the ith  index character to 
 String substring (int i, int j): Returns the substring from i to j-1 index.
     "GeeksforGeeks".substring(2, 5); // returns “eks”
 String concat( String str): Concatenates specified string to the end of this string.
-    String s1 = ”Geeks”;
+    String s1 = ”GeeksGeneral”;
     String s2 = ”forGeeks”;
     String output = s1.concat(s2); // returns “GeeksforGeeks”
 int indexOf (String s): Returns the index within the string of the first occurrence of the specified string.
@@ -64,6 +64,10 @@ String replace (char oldChar, char newChar): Returns new string by replacing all
     String s2 = “feeksforfeeks”.replace(‘f’ ,’g’); // returns “geeksgorgeeks”
 String substring (int start, int last) // returns substring
      prefix = prefix.substring(0, prefix.length() - 1);
+String valueOf() //converts different types of values into string
+    string.valueOf(char c) 
+    string.valueOf(int i)
+    string.valueOf(boolean b) 
 ```
 
 
@@ -75,7 +79,7 @@ However, for Array.sort() methods like Array.sort(int[]/double[]/char[]) without
 
 ## String Syntax point
 ```java
-char[] chars = s.toCharArray();   //when need to sort the string, convert to the string to 
+char[] chars = s.toCharArray();   //when need to sort the string, convert to the string to char[]
 s.charAt(i);     //when access to specific char in a string
 HashMap <Character, Integer> name = new HashMap<Character, Integer>();//create a new hashmap
 ```
