@@ -1,4 +1,4 @@
-## LeetCode link(Easy)
+## LeetCode link(Medium)
 
 
 ## Keyword
@@ -16,10 +16,12 @@ Binary Tree
 
 ## Things to watchout
 
-## 02/17/2020 Java
+## 02/18/2020 Java
 
 ```java
 
 
 ```
 ## Complexity Analyze
+Time: O
+Space: O
