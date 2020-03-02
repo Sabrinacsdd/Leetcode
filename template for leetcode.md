@@ -1,8 +1,8 @@
-## LeetCode link(Medium)
+## LeetCode link(Easy)
 
 
 ## Keyword
-Binary Tree
+Sort
 
 ## Problem description
 ```
@@ -16,7 +16,7 @@ Binary Tree
 
 ## Things to watchout
 
-## 02/20/2020 Java
+## 03/01/2020 Java
 
 ```java
 
