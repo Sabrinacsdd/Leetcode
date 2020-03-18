@@ -1,4 +1,4 @@
-## LeetCode link(Easy)
+## LeetCode link(Medium)
 
 
 ## Keyword
@@ -16,7 +16,7 @@ Graph
 
 ## Things to watchout
 
-## 03/04/2020 Java
+## 03/17/2020 Java
 
 ```java
 
