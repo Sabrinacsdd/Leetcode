@@ -2,7 +2,7 @@
 
 
 ## Keyword
-Graph
+Tree
 
 ## Problem description
 ```
