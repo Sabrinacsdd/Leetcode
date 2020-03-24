@@ -20,4 +20,19 @@ StringBuilder append(CharSequence chseq, int start, int end)
     chseq(CharSequence): This refers to the CharSequence value.
     start(Integer): This refers to the starting index of the subsequence to be appended..
     end(Integer): This refers to the end index of the subsequence to be appended.
+StringBuilder delete(int start, int end)
+    Removes the characters in a substring of this sequence.
+    start - The beginning index, inclusive.
+    end - The ending index, exclusive.
+StringBuilder deleteCharAt(int index)
+    Removes the char at the specified position in this sequence.
+    index - Index of char to remove
+StringBuilder insert(int offset, char[] str)
+    Inserts the string representation of the char array argument into this sequence.
+    offset - the offset.
+    str - a character array.
+StringBuilder replace(int start, int end,String str)
+    start - The beginning index, inclusive.
+    end - The ending index, exclusive.
+    str - String that will replace previous contents.
 ```
