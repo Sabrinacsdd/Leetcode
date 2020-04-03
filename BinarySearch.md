@@ -1,5 +1,6 @@
 ## Binary Search 
 ```Java
+
         int l = 0;
         int r = nums.length - 1;
         while(l < r){
@@ -7,6 +8,8 @@
             int m = l + (r - l) / 2;
             //check if nums[l] to nums[m] is a sorted array
             if(nums[m] >= nums[l])
+            //move l,r based on the sorted array already know. depends on each problem
+            //do more if here to check where will the answer be
                 l = m + 1;   
             //else that nums[m] to nums[r] is a sorted array
             else{
@@ -58,7 +61,7 @@ For rorated array, with duplicate number.
             //check if nums[l] to nums[m] is a sorted array
             if(nums[m] > nums[l]) 
                 l = m + 1;
-            // check if nums[]
+            //else that nums[m] to nums[r] is a sorted array
             else if(nums[m] < nums[l])
                 r = m;
             //if nums[l] == nums[mid] means there are duplicate numbers
