@@ -2,7 +2,7 @@
 
 
 ## Keyword
-Binary Search
+List
 
 ## Problem description
 ```
@@ -16,7 +16,7 @@ Binary Search
 
 ## Things to watchout
 
-## 04/01/2020 Java
+## 04/03/2020 Java
 
 ```java
 
