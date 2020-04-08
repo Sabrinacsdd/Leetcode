@@ -2,7 +2,7 @@
 
 
 ## Keyword
-List
+Two Pointer
 
 ## Problem description
 ```
