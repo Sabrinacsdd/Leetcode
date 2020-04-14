@@ -2,7 +2,7 @@
 
 
 ## Keyword
-Two Pointer
+DFS
 
 ## Problem description
 ```
@@ -16,7 +16,7 @@ Two Pointer
 
 ## Things to watchout
 
-## 04/11/2020 Java
+## 04/13/2020 Java
 
 ```java
 
