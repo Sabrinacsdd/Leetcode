@@ -8,7 +8,7 @@ LinkedList can be roughly categorized into: Singly LinkedList, doubly LinkedList
 1. Traverse(delete/add)
 2. Swap
 3. Reverse(odd even LinkedList)
-4. Detect cycle
+4. Detect cycle(Two pointer)
 5. Merge / Intersection of two LinkedList
 6. Delete(Remove Nth Node from the end)
 7. Insert
@@ -175,9 +175,7 @@ public class Solution {
 ```
 
 
-
-
-## Notes
+## Use Two Pointer to find mid
 ```
 Hare and Tortoise
 Use slow and fast pointer, initiate to head at the first beginning 
