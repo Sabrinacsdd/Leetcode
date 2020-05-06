@@ -1,17 +1,21 @@
 ## Keyword
 LinkedList
 
+## 
+
 ## Problem description
 ```
 LinkedList can be roughly categorized into: Singly LinkedList, doubly LinkedList, Circular Linked List 
 
-1. Traverse(delete/add)
-2. Swap
-3. Reverse(odd even LinkedList)
-4. Detect cycle(Two pointer)
-5. Merge / Intersection of two LinkedList
-6. Delete(Remove Nth Node from the end)
-7. Insert
+Traverse(delete/add)
+Swap
+Add
+Reverse(odd even LinkedList)
+Detect cycle(Two pointer)
+Merge / Intersection of two LinkedList
+Delete(Remove Nth Node from the end)
+Insert
+OOD
 
 
 Dummy Node
@@ -37,6 +41,10 @@ Odd Even Linked List
 
 ## Swap
 # Iterative
+
+```
+Swap every two nodes
+```
 ```Java
 class Solution {
     public ListNode swapPairs(ListNode head) {
@@ -77,9 +85,68 @@ class Solution {
     }
 }
 ```
-
+## Add
+# Add Two Numbers  
+```Java
+public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    ListNode dummyHead = new ListNode(0);
+    ListNode p = l1, q = l2, curr = dummyHead;
+    int carry = 0;
+    while (p != null || q != null) {
+        int x = (p != null) ? p.val : 0;
+        int y = (q != null) ? q.val : 0;
+        int sum = carry + x + y;
+        carry = sum / 10;
+        curr.next = new ListNode(sum % 10);
+        curr = curr.next;
+        if (p != null) p = p.next;
+        if (q != null) q = q.next;
+    }
+    if (carry > 0) {
+        curr.next = new ListNode(carry);
+    }
+    return dummyHead.next;
+}
+```
+# 445. Add Two Numbers II
+```Java
+class Solution {
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode q = l1;
+        ListNode p = l2;
+        Stack<Integer> s1 = new Stack<>();
+        Stack<Integer> s2 = new Stack<>();
+        while(q != null){
+            s1.add(q.val);
+            q = q.next;
+        }
+        while(p != null){
+            s2.add(p.val);
+            p = p.next;
+        }
+        ListNode dummy;
+        ListNode cur = new ListNode();
+        dummy = cur;
+        int carry = 0;
+        
+        while(s1.size() != 0 || s2.size() != 0 || carry != 0){
+            int a = (s1.size() != 0) ? s1.pop() : 0;
+            int b = (s2.size() != 0) ? s2.pop() : 0;
+            int sum = (a + b + carry) % 10;
+            carry = (a + b + carry) / 10;
+            
+            ListNode n = new ListNode();
+            n.next = cur;
+            cur.val = sum;
+            cur = n;
+        }
+        return cur.next;
+    }
+}
+```
 
 ## Reverse Linked List
+# Singly LinkedList
 # Iterative
 ```Java
 public ListNode reverseList(ListNode head) {
@@ -104,6 +171,28 @@ public ListNode reverseList(ListNode head) {
     //for corner case, (the last node to be reversed)
     head.next = null;
     return p;
+}
+```
+# Doubly LinkedList
+```Java
+class DListNode {
+    int val;
+    DListNode prev, next;
+    DListNode(int val) {
+        this.val = val;
+        this.prev = this.next = null;
+    }
+}
+
+public DListNode reverse(DListNode head) {
+    DListNode curr = null;
+    while (head != null) {
+        curr = head;
+        head = curr.next;
+        curr.next = curr.prev;
+        curr.prev = head;
+    }
+    return curr;
 }
 ```
 
@@ -131,7 +220,7 @@ return false;   // change return value to fit specific problem
 # Floyd's Tortoise and Hare
 ```Java
 public class Solution {
-    private ListNode getIntersect(ListNode head) {
+    private ListNode detectCycle(ListNode head) {
         ListNode tortoise = head;
         ListNode hare = head;
 
@@ -149,14 +238,14 @@ public class Solution {
         return null;
 }
 
-    public ListNode detectCycle(ListNode head) {
+    public ListNode getIntersect(ListNode head) {
         if (head == null) {
             return null;
-        }
+        }getIntersect
         // If there is a cycle, the fast/slow pointers will intersect at some
         // node. Otherwise, there is no cycle, so we cannot find an entrance to
         // a cycle.
-        ListNode intersect = getIntersect(head);
+        ListNode intersect = detectCycle(head);
         if (intersect == null) {
             return null;
         }
@@ -182,13 +271,55 @@ Use slow and fast pointer, initiate to head at the first beginning
 while (fast != null && fast.next != null)
 1 -> 2 -> 3 -> 4 -> 5
           S         F
-1 -> 2 -> 3 -> 4 -> 5 -> 6
-          S         F
-So the slow pointer will point to the middle(odd cases) or the front middle(even cases)
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
+               S               F
+So the slow pointer will point to the middle(odd cases) or the latter middle(even cases)
 ```
 
+## Delete/Remove
+# 83. Remove Duplicates from Sorted List 
+```Java
+public class Solution {
+    public static ListNode deleteDuplicates(ListNode head) {
+        ListNode curr = head;
+        while (curr != null) {
+            while (curr.next != null && curr.val == curr.next.val) {
+                curr.next = curr.next.next;
+            }
+            curr = curr.next;
+        }
+
+        return head;
+    }
+}
+```
+# 82. Remove Duplicates from Sorted List II
+```Java
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return null;
+
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode node = dummy;
+        while(node.next != null && node.next.next != null) {
+            if (node.next.val == node.next.next.val) {
+                int val_prev = node.next.val;
+                while (node.next != null && node.next.val == val_prev) {
+                    node.next = node.next.next;
+                }
+            } else {
+                node = node.next;
+            }
+        }
+
+        return dummy.next;
+    }
+}
+```
 
 ## Merge
+
 ```Java
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -215,3 +346,16 @@ class Solution {
     }
 }
 ```
+# Note
+```
+23. Merge k Sorted Lists
+```
+
+
+## OOD
+# Note
+```
+380. Insert Delete GetRandom O(1)
+146. LRU Cache
+```
+
