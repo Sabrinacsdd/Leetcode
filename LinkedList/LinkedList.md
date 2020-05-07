@@ -18,6 +18,7 @@ Insert
 OOD
 
 
+***************
 Dummy Node
 Two pointer 
 
@@ -41,26 +42,12 @@ Odd Even Linked List
 
 ## Swap
 # Iterative
-
 ```
 Swap every two nodes
 ```
+
 ```Java
-class Solution {
-    public ListNode swapPairs(ListNode head) {
-        if(head == null || head.next == null){
-            return head;
-        }
-        ListNode p = head;
-        ListNode q = head.next;
-        
-        //swap the two nodes;
-        p.next = swapPairs(q.next);
-        q.next = p;
-        
-        return q;
-    }
-}
+
 ```
 # Recusion
 ```Java
@@ -175,14 +162,7 @@ public ListNode reverseList(ListNode head) {
 ```
 # Doubly LinkedList
 ```Java
-class DListNode {
-    int val;
-    DListNode prev, next;
-    DListNode(int val) {
-        this.val = val;
-        this.prev = this.next = null;
-    }
-}
+
 
 public DListNode reverse(DListNode head) {
     DListNode curr = null;
@@ -198,25 +178,6 @@ public DListNode reverse(DListNode head) {
 
 
 ## Two Pointer
-# Detect cycle
-```Java
-// Initialize slow & fast pointers
-ListNode slow = head;
-ListNode fast = head;
-/**
- * Change this condition to fit specific problem.
- * Attention: remember to avoid null-pointer error
- **/
-while (fast != null && fast.next != null) {
-    slow = slow.next;           // move slow pointer one step each time
-    fast = fast.next.next;      // move fast pointer two steps each time
-    if (slow == fast) {         // change this condition to fit specific problem
-        return true;
-    }
-}
-return false;   // change return value to fit specific problem
-```
-
 # Floyd's Tortoise and Hare
 ```Java
 public class Solution {
@@ -236,12 +197,12 @@ public class Solution {
         }
         //this means there is no cycle in the linkedlist
         return null;
-}
+    }
 
     public ListNode getIntersect(ListNode head) {
         if (head == null) {
             return null;
-        }getIntersect
+        }
         // If there is a cycle, the fast/slow pointers will intersect at some
         // node. Otherwise, there is no cycle, so we cannot find an entrance to
         // a cycle.
@@ -264,17 +225,18 @@ public class Solution {
 ```
 
 
-## Use Two Pointer to find mid
+# Use Two Pointer to find mid
 ```
-Hare and Tortoise
+Hare and Tortoise start from head
 Use slow and fast pointer, initiate to head at the first beginning 
 while (fast != null && fast.next != null)
-1 -> 2 -> 3 -> 4 -> 5
+1 -> 2 -> 3 -> 4 -> 5 -> null
           S         F
 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
                S               F
 So the slow pointer will point to the middle(odd cases) or the latter middle(even cases)
 ```
+--------------------------------------------------------------------------------------------------------
 
 ## Delete/Remove
 # 83. Remove Duplicates from Sorted List 
