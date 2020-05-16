@@ -2,7 +2,7 @@
 
 
 ## Keyword
-DP
+String
 
 ## Problem description
 ```
@@ -16,7 +16,7 @@ DP
 
 ## Things to watchout
 
-## 05/14/20 Java
+## 05/15/20 Java
 
 ```java
 
