@@ -37,7 +37,7 @@ int compareTo( String anotherString): Compares two string lexicographically.
 
     This returns difference s1-s2. If :
     out < 0  // s1 comes before s2
-    out = 0  // s1 and s2 stays the same
+    out = 0  // s1 and s2 are equal.
     out > 0   // s1 comes after s2.
 int compareToIgnoreCase( String anotherString): Compares two string lexicographically, ignoring case considerations.
     int out = s1.compareToIgnoreCase(s2);  

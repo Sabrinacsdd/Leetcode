@@ -229,13 +229,35 @@ public class Solution {
 ```
 Hare and Tortoise start from head
 Use slow and fast pointer, initiate to head at the first beginning 
+fe -> firstEnd the ending of the first half
 while (fast != null && fast.next != null)
 1 -> 2 -> 3 -> 4 -> 5 -> null
-          S         F
+     fE   S         F
 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> null
-               S               F
+          fE   S               F
 So the slow pointer will point to the middle(odd cases) or the latter middle(even cases)
+if (fast == null){
+    even nodes in list
+    head -> fE
+    S - end
+}
+if (fast != null){
+    odd nodes in list
+    head -> fE (first half has one node less than the second half)
+    S - end
+}
 ```
+```Java
+Node slow = head;
+Node fast = head;
+Node firstEnd = head;
+while (fast != null && fast.next != null) {
+    firstEnd = slow;
+    slow = slow.next;
+    fast = fast.next.next;
+}
+```
+
 --------------------------------------------------------------------------------------------------------
 
 ## Delete/Remove
