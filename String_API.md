@@ -68,6 +68,10 @@ String valueOf() //converts different types of values into string
     string.valueOf(char c) 
     string.valueOf(int i)
     string.valueOf(boolean b) 
+String[] split(String regex)
+    string.split("/");
+    //if "/" shows at the first char of the string, it will create an empty String "", same as if there are two "/" continuous in the string. 
+    //if "/" shows at the last char of the string, it will not affact anything
 ```
 
 
