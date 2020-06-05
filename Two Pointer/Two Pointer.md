@@ -12,7 +12,8 @@ Usually for array, two pointers are used to traversed to whole array either same
 
 
 
-
+//dutch flag
+//quicksort
 
 ## Same direction from start
 # 
@@ -82,6 +83,27 @@ class Solution {
     }
 }
 ```
+# 881. Boats to Save People
+```Java
+class Solution {
+    public int numRescueBoats(int[] people, int limit) {
+        if(people.length <= 1) return people.length;
+        int i = 0;
+        int j = people.length - 1;
+        int ans = 0;
+        Arrays.sort(people);
+        while(i < j){
+            ans++;
+            if(people[i] + people[j] <= limit){
+                i++;
+            }  
+            j--;
+        }
+        if(j == i) ans++;
+        return ans;
+    }
+}
+```
 
 ## Two pointer points two array, both from beginning
 ```
@@ -101,6 +123,30 @@ class Solution {
 	    if(g[i]<=s[j]) i++;
     }
     return i;
+    }
+}
+```
+# 986. Interval List Intersections
+```Java
+class Solution {
+    public int[][] intervalIntersection(int[][] A, int[][] B) {
+        int i = 0;
+        int j = 0;
+        List<int[]> ans = new ArrayList<>();
+        while (i < A.length && j < B.length){
+            int start = Math.max(A[i][0], B[j][0]);
+            int end = Math.min(A[i][1], B[j][1]);
+            if (start <= end){
+                ans.add(new int[]{start,end});
+                
+            }
+            if (A[i][1] < B[j][1]){
+                ++i;
+            } else {
+                ++j;
+            }
+        }
+        return ans.toArray(new int[ans.size()][]);
     }
 }
 ```
