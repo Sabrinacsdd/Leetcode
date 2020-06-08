@@ -10,11 +10,6 @@ Usually for array, two pointers are used to traversed to whole array either same
 
 ```
 
-
-
-//dutch flag
-//quicksort
-
 ## Same direction from start
 # 3. Longest Substring Without Repeating Characters
 ```Java
