@@ -10,38 +10,84 @@ Divide and conquer
 
 
 
-## Same direction from start
-# 4. Median of Two Sorted Arrays
+## Merge
+# 23. Merge k Sorted Lists
+```Java
+public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    ListNode h = new ListNode(0);
+    ListNode ans = h;
+    while (l1 != null && l2 != null) {
+        if (l1.val < l2.val) {
+            h.next = l1;
+            h = h.next;
+            l1 = l1.next;
+        } else {
+            h.next = l2;
+            h = h.next;
+            l2 = l2.next;
+        }
+    }
+    if(l1==null){
+        h.next=l2;
+    }
+    if(l2==null){
+        h.next=l1;
+    } 
+    return ans.next;
+}
+public ListNode mergeKLists(ListNode[] lists) {
+    if(lists.length==0){
+        return null;
+    }
+    int interval = 1;
+    while(interval<lists.length){
+        System.out.println(lists.length);
+        for (int i = 0; i + interval< lists.length; i=i+interval*2) {
+            lists[i]=mergeTwoLists(lists[i],lists[i+interval]);            
+        }
+        interval*=2;
+    }
+
+    return lists[0];
+}
+```
+
+# 215. Kth Largest Element in an Array
 ```Java
 class Solution {
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int m = nums1.length;
-        int n = nums2.length;
-        //0 - m    0 - n
-        int odd = 0;
-        double even1 = 0;
-        double even2 = 0;
-        if((m + n) % 2 == 1){
-            odd = med(0, m, 0, n, nums1, nums2, (m + n) / 2 + 1);
-            return odd;
-        }
-        if((m + n) % 2 == 0){
-            even1 = med(0, m, 0, n, nums1, nums2, (m + n) / 2 );
-            even2 = med(0, m, 0, n, nums1, nums2, (m + n) / 2 + 1);
-            return (even1 + even2) / 2;
-        }
-        return - 1;
+    public int findKthLargest(int[] nums, int k) {
+        if(nums.length == 0) return -1;
+        int l = 0;
+        int r = nums.length - 1;
+        int f = nums.length - k;
+        return partition(nums, l, r, f); 
     }
-    public int med(int l1, int r1, int l2, int r2, int[] nums1, int[] nums2, int k){
-        int cur = k / 2;
-        if(l1 > nums1.length - 1 && k == 1) return nums2[l2];
-        if(l2 > nums2.length - 1 && k == 1) return nums1[l1];
-        if(k == 1) return Math.min(nums1[l1], nums2[l2]);
-        if ((l1 + cur - 1) > (nums1.length - 1) || (l2 + cur - 1 <= nums2.length - 1 && nums1[cur + l1 - 1] > nums2[cur + l2 - 1])){
-            return med(l1, r1, l2 + cur, r2, nums1, nums2, k - cur);
-        }else{
-            return med(l1 + cur, r1, l2, r2, nums1, nums2, k - cur);
+    public int partition(int[] nums, int l, int h, int f){
+        //if(l == h) return l;
+        int pivot = nums[h];
+        
+        int i = l;
+        int j = l;
+        while(j < h){
+            if(nums[j] < nums[h]){
+                swap(nums, i, j);
+                i++;
+            }
+            j++;
         }
+        swap(nums, i , h);       
+        if(i > f){
+            return partition(nums, l, i - 1, f);
+        }else if(i < f){
+            return partition(nums, i + 1, h, f);
+        }else{
+            return nums[i];
+        }
+    }
+    public void swap(int[] nums, int i, int j){
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
     }
 }
 ```
