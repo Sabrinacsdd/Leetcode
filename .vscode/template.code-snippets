@@ -1,0 +1,34 @@
+{
+    "leetcode": {
+        "scope": "markdown",
+        "prefix": "leetcode",
+        "body": [
+            "## LeetCode link(${1|Easy,Medium,Hard|})",
+            "$2",
+            " ",
+            "## Keyword",
+            "$3",
+            "",
+            "## Problem description",
+            "```",
+            "$4",
+            "```",
+            "## ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR} Solution using sort",
+            "```java",
+            "$5",
+            "```",
+            "",
+            "## Complexity Analyze",
+            "Time complexity: O($6)  ",
+            "Space complexity: O($7)",
+            "",
+            "## Notes",
+            "$8  ",
+            "",
+            "## Key points",
+            "Corner cases: $9  ",
+            "API:$10"
+        ],
+        "description": "Leetcode note template"
+    }
+}
