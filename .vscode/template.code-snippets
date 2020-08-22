@@ -4,7 +4,7 @@
         "prefix": "leetcode",
         "body": [
             "## LeetCode link(${1|Easy,Medium,Hard|})",
-            "$2",
+            "[LeetCode Link]($2)",
             " ",
             "## Keyword",
             "$3",
@@ -13,7 +13,7 @@
             "```",
             "$4",
             "```",
-            "## ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR} Solution using sort",
+            "## ${CURRENT_MONTH}/${CURRENT_DATE}/${CURRENT_YEAR}",
             "```java",
             "$5",
             "```",
