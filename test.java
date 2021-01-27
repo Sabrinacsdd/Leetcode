@@ -13,7 +13,7 @@ public class test{
 
     }
 }
-
+// Test
 class Solution {
     public int check(int a) {
         return a;
