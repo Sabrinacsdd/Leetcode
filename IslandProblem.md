@@ -32,7 +32,6 @@
         dfs(grid, i + 1, j);
         dfs(grid, i, j + 1);
         dfs(grid, i - 1, j);
-        dfs(grid, i, j - 1);
-        
+        dfs(grid, i, j - 1);     
     }
 ```

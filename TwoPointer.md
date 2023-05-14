@@ -20,9 +20,7 @@ class Solution {
 }
 ```
 
-
-
-## Two pointer - 相向双指针：(以two sum为基础的一系列题)
+## Two pointer - 相向双指针
 ### Leetcode 11. Container With Most Water
 ```Java
     while (i < j) { // move the pointer 
@@ -36,7 +34,16 @@ class Solution {
     }
 ```
 
-## Two pointer - 同向双指针：
+## Two pointer - 同向双指针：(以two sum为基础的一系列题)
+### Leetcode 283. Move Zeroes
+```Java
+    for (int i = 0, j = 0; j < n; ++j) {
+        if (nums[j] != 0) {
+            swap(nums, i, j);
+            ++i;
+        }
+    }
+```
 
 
 

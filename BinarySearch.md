@@ -2,7 +2,7 @@
 ```Java
     int l = 0;
     int r = nums.length;   // [l, r）
-    while(l < r){
+    while (l < r) {
         int m = l + (r - l) / 2; // make sure no overflow
         
         if (f(m)) {
@@ -14,7 +14,7 @@
             l = m + 1; // new range [m+1, r)
         }
     }
-    return l 
+    return l;
     // or not found, need to check l before return, l is the smallest index where g(m) is true
     // FFFFTTTT
     //     l
